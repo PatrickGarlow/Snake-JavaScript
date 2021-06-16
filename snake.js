@@ -63,9 +63,9 @@ function Snake(color) {
             break;
         }
     }
-    this.eat = function(fruit) {
+    this.eat = function(fruit, num) {
         if(this.x === fruit.x && this.y === fruit.y) {
-            this.total++;
+            this.total+=num;
             return true;
         }
         return false;

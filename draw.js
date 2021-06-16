@@ -9,23 +9,39 @@ var snake;
 
     snake = new Snake("#FF00FF");
     fruit = new Fruit('#FF0000');
+    superFruit = new Fruit("#00a2ff");
+    
     fruit.pickLocation();
-
+    superFruit.pickLocation();
+    var superFruitSpawned = false;
     
   
     window.setInterval(() => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
+      var randomNum = Math.floor(Math.random() * 500)+1;
+      
+      if(randomNum===444) {
+        console.log("randomNum");
+        superFruitSpawned = true;
+      }
+      if(superFruitSpawned){
+        superFruit.draw()
+      }
       fruit.draw();
       snake.update();
       snake.draw();
 
-      if (snake.eat(fruit)) {
+      if (snake.eat(fruit,1)) {
           fruit.pickLocation();
       }
+      if (superFruitSpawned && snake.eat(superFruit,2)) {
+        superFruit.pickLocation();
+        superFruitSpawned = false;
+      }
 
-    snake.checkCollision();
-        document.querySelector('.score')
-        .innerText = 'Score: ' + snake.total;
+      snake.checkCollision();
+          document.querySelector('.score')
+          .innerText = 'Score: ' + snake.total;
 
     }, 150);
   }());
