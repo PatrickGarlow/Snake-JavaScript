@@ -3,68 +3,88 @@
     <head>
         <title>Snake Game</title>
         <link rel="stylesheet" href="main.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     </head>
     <body>
         <h1>Snake Game</h1>
         <div class="page-content">
             <div class="color-selector">
-                <h2>Pick your color.</h2>
+                <h2 class="center-text">Pick your snake color.</h2>
                 <div class="snake-colors">
-                    <label>
-                        <input type="radio" name="test" value="red" checked>
-                        <svg width="100" height="110">
-                            <rect width="100" height="100" style="fill:rgb(0,0,255);" />
-                        </svg>
+                    <label id="color-label">
+                        <input type="radio" name="test" value="#0A0908" checked>
+                        <svg id="color-object">
+                            <rect id="color-object" style="fill:#0A0908;" />
+                          </svg>
                     </label>
-                    <label>
-                        <input type="radio" name="test" value="red" checked>
-                        <svg width="100" height="110">
-                            <rect width="300" height="100" style="fill:rgb(0,0,255);" />
-                        </svg>
+                    <label id="color-label">
+                        <input type="radio" name="test" value="#FFF2F1">
+                        <svg id="color-object">
+                            <rect id="color-object" style="fill:#FFF2F1;" />
+                          </svg>
                     </label>
-                    <label>
-                        <input type="radio" name="test" value="red" checked>
-                        <svg width="100" height="110">
-                            <rect width="100" height="100" style="fill:rgb(0,0,255);" />
-                        </svg>
+                    <label id="color-label">
+                        <input type="radio" name="test" value="#F92A82">
+                        <svg id="color-object">
+                            <rect id="color-object" style="fill:#F92A82;" />
+                          </svg>
                     </label>
-                    <label>
-                        <input type="radio" name="test" value="red" checked>
-                        <svg width="100" height="110">
-                            <rect width="100" height="100" style="fill:rgb(0,0,255);" />
-                        </svg>
+                    <label id="color-label">
+                        <input type="radio" name="test" value="#F28F3B">
+                        <svg id="color-object">
+                            <rect id="color-object" style="fill:#F28F3B;" />
+                          </svg>
                     </label>
-                    <label>
-                        <input type="radio" name="test" value="red" checked>
-                        <svg width="100" height="110">
-                            <rect width="100" height="100" style="fill:rgb(0,0,255);" />
-                        </svg>
+                    <label id="color-label">
+                        <input type="radio" name="test" value="#FCFF4B">
+                        <svg id="color-object">
+                            <rect id="color-object" style="fill:#FCFF4B;" />
+                          </svg>
                     </label>
-                    <label>
-                        <input type="radio" name="test" value="red" checked>
-                        <svg width="100" height="110">
-                            <rect width="100" height="100" style="fill:rgb(0,0,255);" />
-                        </svg>
+                    <label id="color-label">
+                        <input type="radio" name="test" value="#0E7C7B">
+                        <svg id="color-object">
+                            <rect id="color-object" style="fill:#0E7C7B;" />
+                          </svg>
                     </label>
-                    <label>
-                        <input type="radio" name="test" value="red" checked>
-                        <svg width="100" height="110">
-                            <rect width="100" height="100" style="fill:rgb(0,0,255);" />
-                        </svg>
+                    <label id="color-label">
+                        <input type="radio" name="test" value="#3777FF">
+                        <svg id="color-object">
+                            <rect id="color-object" style="fill:#3777FF;" />
+                          </svg>
                     </label>
-                    <label>
-                        <input type="radio" name="test" value="red" checked>
-                        <svg width="100" height="110">
-                            <rect width="100" height="100" style="fill:rgb(0,0,255);" />
-                        </svg>
-                    </label>
+                    <label id="color-label">
+                        <input type="radio" name="test" value="#642CA9">
+                        <svg id="color-object">
+                            <rect id="color-object" style="fill:#642CA9;" />
+                          </svg>
+                    </label> 
                 </div>
+                <button type="button" class="button-primary button-centered" onclick="start()">Start</button>
             </div>
-            <div class="game">
-                <canvas class="canvas" height="300" width="300" style="background-color: black;"></canvas>
-                <h1 class="score"></h1>
+            <div class="game" style="display: none;">
+                <canvas class="canvas" height="300" width="300" style="background-color: rgb(31, 31, 31);"></canvas>
+                <h2 class="score">Score: </h2>
             </div>
         </div>
+        <script>
+            function start() {
+                var colorSelector = document.getElementsByClassName("color-selector")[0];
+                var game = document.getElementsByClassName("game")[0];
+                var canvas = document.getElementsByClassName("canvas")[0];
+                if (colorSelector.style.display === "none") {
+                    colorSelector.style.display = "block";
+                } else {
+                    colorSelector.style.display = "none";
+                    game.style.display = "block";
+                    canvas.style.margin = "auto";
+                }
+            }
+            function changeColor() {
+
+            }
+        </script>
         
     </body>
     <script type="text/javascript" src="fruit.js"></script>

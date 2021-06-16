@@ -8,7 +8,8 @@ function Snake(color) {
     this.color = color;
 
     this.draw = function() {
-        ctx.fillStyle = this.color;
+        var value = document.querySelector('input[name="test"]:checked').value;
+        ctx.fillStyle = value;
         for (let i = 0; i <this.tail.length; i++) {
             ctx.fillRect(this.tail[i].x+1,this.tail[i].y+1,scale-1,scale-1);
         }
@@ -37,9 +38,6 @@ function Snake(color) {
         if(this.y < 0) {
             this.y = canvas.height;
         }
-
-
-
     }
     this.start = function() {
         this.xSpeed = scale * 1;
